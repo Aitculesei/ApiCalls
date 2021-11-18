@@ -9,18 +9,7 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    @IBOutlet var headerView: UIView!
     @IBOutlet var tableView: UITableView!
-    @IBOutlet weak var labelID: UILabel!
-    @IBOutlet weak var labelName: UILabel!
-    @IBOutlet weak var labelUsername: UILabel!
-    @IBOutlet weak var labelEmail: UILabel!
-    @IBOutlet var buttonAddress: UIButton!
-    @IBOutlet weak var labelPhone: UILabel!
-    @IBOutlet weak var labelWebsite: UILabel!
-    @IBOutlet var buttonCompany: UIButton!
-    
-    
     private(set) var users: [Users] = [] {
         didSet {
 //            DispatchQueue.main.async { self.tableView.reloadData() }
