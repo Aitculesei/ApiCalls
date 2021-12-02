@@ -38,7 +38,7 @@ struct CompanyDetails: Codable {
 }
 
 class GetUsersApi {
-    func getUsers(from url: String, completion: @escaping ([Users]) -> ()) {
+    func getUsers(from url: String, completion: @escaping ([Users]?, HTTPErrors?) -> ()) {
         let task = URLSession.createTask(with: url, completion: completion)
         task.resume()
     }

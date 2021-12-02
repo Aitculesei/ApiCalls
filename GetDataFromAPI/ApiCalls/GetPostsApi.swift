@@ -15,7 +15,7 @@ struct Posts: Codable {
 }
 
 class GetPostsApi {
-    func getPosts(from url: String, completion: @escaping ([Posts]) -> ()) {
+    func getPosts(from url: String, completion: @escaping ([Posts]?, HTTPErrors?) -> ()) {
         let task = URLSession.createTask(with: url, completion: completion)
         task.resume()
     }
