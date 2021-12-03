@@ -14,13 +14,13 @@ enum HTTPErrors: Error {
 }
 
 extension URLSession {
-    static func createTask<DataType: Codable>(with url: String, completion: @escaping (DataType?, HTTPErrors?) -> ()) -> URLSessionDataTask {
+    static func createTask<DataType: Codable>(with url: String, completion: @escaping (Result<DataType?, HTTPErrors>) -> ()) -> URLSessionDataTask {
         URLSession.shared.dataTask(with: URL(string: url)!, completionHandler: { data, response, error in
             // HERE WE MAKE SURE THAT WE GET SOME DATA BACK
             guard let data = data, error == nil else {
                 print("Something went wrong in creating a data task.")
                 DispatchQueue.main.async {
-                    completion(nil, .noData)
+                    completion(.failure(.noData))
                 }
                 return
             }
@@ -32,7 +32,7 @@ extension URLSession {
             catch {
                 print("Failed to convert data: \(error.localizedDescription)")
                 DispatchQueue.main.async {
-                    completion(nil, .badData)
+                    completion(.failure(.badData))
                 }
             }
 
@@ -41,18 +41,18 @@ extension URLSession {
             }
             
             DispatchQueue.main.async {
-                completion(json, nil)
+                completion(.success(json))
             }
         })
     }
     
-    static func createTask<DataType: Codable>(with request: URLRequest, completion: @escaping (DataType?, HTTPErrors?) -> ()) -> URLSessionDataTask {
+    static func createTask<DataType: Codable>(with request: URLRequest, completion: @escaping (Result<DataType?, HTTPErrors>) -> ()) -> URLSessionDataTask {
         URLSession.shared.dataTask(with: request, completionHandler: { data, response, error in
             // HERE WE MAKE SURE THAT WE GET SOME DATA BACK
             guard let data = data, error == nil else {
                 print("Something went wrong in creating a data task.")
                 DispatchQueue.main.async {
-                    completion(nil, .noData)
+                    completion(.failure(.noData))
                 }
                 return
             }
@@ -64,7 +64,7 @@ extension URLSession {
             catch {
                 print("Failed to convert data: \(error.localizedDescription)")
                 DispatchQueue.main.async {
-                    completion(nil, .badData)
+                    completion(.failure(.badData))
                 }
             }
 
@@ -73,7 +73,7 @@ extension URLSession {
             }
             
             DispatchQueue.main.async {
-                completion(json, nil)
+                completion(.success(json))
             }
         })
     }

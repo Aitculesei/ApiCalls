@@ -14,7 +14,7 @@ struct Album: Codable {
 }
 
 class GetAlbumsApi {
-    func getAlbums(from url: String, completion: @escaping ([Album]?, HTTPErrors?) -> ()) {
+    func getAlbums(from url: String, completion: @escaping (Result<[Album]?, HTTPErrors>) -> ()) {
         let task = URLSession.createTask(with: url, completion: completion)
         task.resume()
     }

@@ -19,26 +19,20 @@ struct Repository: Repo {
 //
 //    }
     
-    func getUsers(at completion: @escaping ([Users]?) -> ()) {
-        GetUsersApi().getUsers(from: Constants.usersURL) { users, error in
-            print("USERS in Repo: \(users)")
-            guard error == nil else {
-                switch error {
-                case .noData: print("No user data!")
-                case .badRequest: print("Bad getUsers request!")
-                case .badData: print("Bad user data!")
-                case .none: print("Some wierdo error!")
-                }
-                return
+    func getUsers(at completion: @escaping ([User]?) -> ()) {
+        GetUsersApi().getUsers(from: Constants.usersURL) { result in
+            switch result {
+            case .success(let receivedUsers):
+                completion(receivedUsers)
+            case .failure(let error):
+                print(error.localizedDescription)
             }
-            completion(users)
         }
     }
 }
 
 protocol Repo {
-    
-    func getUsers(at completion: @escaping ([Users]?) -> ())
+    func getUsers(at completion: @escaping ([User]?) -> ())
 }
 
 extension Repo {

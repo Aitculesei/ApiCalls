@@ -16,7 +16,7 @@ struct Comment: Codable {
 }
 
 class GetCommentsApi {
-    func getComments(from url: String, completion: @escaping ([Comment]?, HTTPErrors?) -> ()) {
+    func getComments(from url: String, completion: @escaping (Result<[Comment]?, HTTPErrors>) -> ()) {
         let task = URLSession.createTask(with: url, completion: completion)
         task.resume()
     }

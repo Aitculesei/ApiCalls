@@ -11,7 +11,7 @@ class ViewController: UIViewController {
     @IBOutlet var tableView: UITableView!
     private var viewModel = ViewModel()
     private var tableContent: [(String, String)] = []
-    private(set) var users: [Users] = [] {
+    private(set) var users: [User] = [] {
         didSet {
             self.tableView.reloadData()
         }

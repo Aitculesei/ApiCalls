@@ -10,7 +10,7 @@ import UIKit
 class ViewModel {
     private let repo = Repository()
     
-    func getUsersFromApi(completion: @escaping ([Users]?, [(String,String)]) -> ()) {
+    func getUsersFromApi(completion: @escaping ([User]?, [(String,String)]) -> ()) {
         repo.getUsers { users in
             guard let result = users else {
                 return

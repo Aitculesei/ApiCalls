@@ -14,7 +14,7 @@ struct DadJoke: Codable {
 }
 
 class GetDadjokeApi {
-    func getDadjokes(from url: String, completion: @escaping ([DadJoke]?, HTTPErrors?) -> ()) {
+    func getDadjokes(from url: String, completion: @escaping (Result<[DadJoke]?, HTTPErrors>) -> ()) {
         var request = URLRequest(url: URL(string: url)!)
         request.httpMethod = "GET"
         request.allHTTPHeaderFields = [
