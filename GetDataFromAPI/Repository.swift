@@ -20,13 +20,28 @@ struct Repository: Repo {
 //    }
     
     func getUsers(at completion: @escaping ([User]?) -> ()) {
-        GetUsersApi().getUsers(from: Constants.usersURL) { result in
-            switch result {
-            case .success(let receivedUsers):
-                completion(receivedUsers)
-            case .failure(let error):
+        GetUsersApi().getUsers(from: C.APICallURL.users) { result in
+
+            // First method
+///            switch result {
+///            case .success(let receivedUsers):
+///                completion(receivedUsers)
+///            case .failure(let error):
+///                print(error.localizedDescription)
+///            }
+            
+            // Second method
+            if case .success(let users) = result {
+                completion(users)
+            } else if case .failure(let error) = result {
                 print(error.localizedDescription)
             }
+            // MARK: - QUESTION?
+//            if let users = try? result.get() {
+//                completion(users)
+//            } else {
+//
+//            }
         }
     }
 }
@@ -37,14 +52,4 @@ protocol Repo {
 
 extension Repo {
     
-}
-
-// MARK: - Constants
-
-struct Constants {
-    static let postsURL = "https://jsonplaceholder.typicode.com/posts"
-    static let usersURL = "https://jsonplaceholder.typicode.com/users"
-    static let commentsURL = "https://jsonplaceholder.typicode.com/comments"
-    static let albumsURL = "https://jsonplaceholder.typicode.com/albums"
-    static let dadjokesURL = "https://icanhazdadjoke.com/"
 }
