@@ -21,5 +21,10 @@ struct C {
         static let comments = "https://jsonplaceholder.typicode.com/comments"
         static let albums = "https://jsonplaceholder.typicode.com/albums"
         static let dadJokes = "https://icanhazdadjoke.com/"
+        static let profileImage = "http://graph.facebook.com/7/picture"
+    }
+    
+    enum ImagesURL {
+        static let clouds = "https://cdn.cocoacasts.com/cc00ceb0c6bff0d536f25454d50223875d5c79f1/above-the-clouds.jpg"
     }
 }

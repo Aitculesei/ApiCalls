@@ -20,7 +20,7 @@ extension Array {
                 title: \"\(post.title)\"
                 body: \"\(post.body)\"
                 """)
-            } else if let user = value as? User {
+            } else if let user = value as? APIUser {
                 print("""
                 
                 User number \(index) is:

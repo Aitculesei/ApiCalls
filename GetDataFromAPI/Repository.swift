@@ -7,6 +7,23 @@
 
 import Foundation
 
+struct User {
+    let name: String
+    let email: String
+    let address: String
+    let phone: String
+    let website: String
+    let company: String
+    init(apiUser: APIUser) {
+        name = apiUser.name
+        email = apiUser.email
+        address = "\(apiUser.address.street) | \(apiUser.address.suite) | \(apiUser.address.city) | \(apiUser.address.zipcode)"
+        phone = apiUser.phone
+        website = apiUser.website
+        company = "\(apiUser.company.name) | \(apiUser.company.catchPhrase)"
+    }
+}
+
 // For API calls
 struct Repository: Repo {
 //    func apiCalls() {
@@ -22,26 +39,14 @@ struct Repository: Repo {
     func getUsers(at completion: @escaping ([User]?) -> ()) {
         GetUsersApi().getUsers(from: C.APICallURL.users) { result in
 
-            // First method
-///            switch result {
-///            case .success(let receivedUsers):
-///                completion(receivedUsers)
-///            case .failure(let error):
-///                print(error.localizedDescription)
-///            }
-            
-            // Second method
-            if case .success(let users) = result {
-                completion(users)
-            } else if case .failure(let error) = result {
+            switch result {
+            case .success(let receivedUsers):
+                completion(receivedUsers?.map({ apiUser in
+                    User(apiUser: apiUser)
+                }))
+            case .failure(let error):
                 print(error.localizedDescription)
             }
-            // MARK: - QUESTION?
-//            if let users = try? result.get() {
-//                completion(users)
-//            } else {
-//
-//            }
         }
     }
 }

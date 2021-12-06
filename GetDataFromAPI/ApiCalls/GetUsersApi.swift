@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct User: Codable {
+struct APIUser: Codable {
     let id: Int
     let name: String
     let username: String
@@ -38,7 +38,7 @@ struct CompanyDetails: Codable {
 }
 
 class GetUsersApi {
-    func getUsers(from url: String, completion: @escaping (Result<[User]?, HTTPErrors>) -> ()) {
+    func getUsers(from url: String, completion: @escaping (Result<[APIUser]?, HTTPErrors>) -> ()) {
         let task = URLSession.createTask(with: url, completion: completion)
         task.resume()
     }

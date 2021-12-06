@@ -8,7 +8,11 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+// MARK: - Properties
+    
     @IBOutlet var tableView: UITableView!
+    @IBOutlet weak var userImageView: UIImageView!
     private var viewModel = ViewModel()
     private var tableContent: [(String, String)] = []
     private(set) var users: [User] = [] {
@@ -16,6 +20,8 @@ class ViewController: UIViewController {
             self.tableView.reloadData()
         }
     }
+    
+// MARK: - View Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,6 +58,18 @@ extension ViewController: UITableViewDataSource {
         
         cell.nameLabel.text = tableContent[indexPath.row].0
         cell.emailLabel.text = tableContent[indexPath.row].1
+        
+        let cloudsImage = URL(string: C.ImagesURL.clouds)!
+        
+        DispatchQueue.global().async {
+                // Fetch Image Data
+            if let data = try? Data(contentsOf: cloudsImage) {
+                DispatchQueue.main.async {
+                    // Create Image and Update Image View
+                    self.userImageView.image = UIImage(data: data)
+                }
+            }
+        }
         
         return cell
     }

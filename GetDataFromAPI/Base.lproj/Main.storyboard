@@ -17,45 +17,48 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="WZw-OQ-7hV">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="WZw-OQ-7hV">
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ListTableViewCellId" id="TcQ-A1-lIP" customClass="TableViewCell" customModule="GetDataFromAPI" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="44.5" width="414" height="40.5"/>
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="TcQ-A1-lIP" id="jEL-Yp-cFl">
-                                            <rect key="frame" x="0.0" y="0.0" width="384.5" height="40.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="384.5" height="80"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wYd-oF-ySQ">
-                                                    <rect key="frame" x="20" y="-0.5" width="344.5" height="21"/>
+                                                    <rect key="frame" x="100" y="0.0" width="264.5" height="40"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YIV-sa-Xut">
-                                                    <rect key="frame" x="20" y="22.5" width="344.5" height="14"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YIV-sa-Xut">
+                                                    <rect key="frame" x="100" y="40" width="264.5" height="40"/>
                                                     <fontDescription key="fontDescription" type="italicSystem" pointSize="11"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <view contentMode="scaleToFill" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="b95-a6-7HD">
-                                                    <rect key="frame" x="20" y="20" width="364.5" height="0.5"/>
-                                                    <color key="backgroundColor" systemColor="labelColor"/>
-                                                </view>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="W1g-kZ-U1y">
+                                                    <rect key="frame" x="7" y="0.0" width="80" height="80"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="W1g-kZ-U1y" secondAttribute="height" multiplier="1:1" id="64o-Rp-QOK"/>
+                                                    </constraints>
+                                                </imageView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="YIV-sa-Xut" firstAttribute="leading" secondItem="wYd-oF-ySQ" secondAttribute="leading" id="6Jc-Kz-39F"/>
-                                                <constraint firstAttribute="trailing" secondItem="b95-a6-7HD" secondAttribute="trailing" id="ANG-bk-y9x"/>
-                                                <constraint firstItem="b95-a6-7HD" firstAttribute="leading" secondItem="wYd-oF-ySQ" secondAttribute="leading" id="CR1-dV-cjQ"/>
-                                                <constraint firstItem="YIV-sa-Xut" firstAttribute="top" secondItem="wYd-oF-ySQ" secondAttribute="bottom" constant="2" id="GUq-Ds-Sk2"/>
-                                                <constraint firstItem="b95-a6-7HD" firstAttribute="centerY" secondItem="jEL-Yp-cFl" secondAttribute="centerY" id="NMJ-KI-IQ8"/>
-                                                <constraint firstItem="wYd-oF-ySQ" firstAttribute="centerX" secondItem="jEL-Yp-cFl" secondAttribute="centerX" id="S5K-ph-hlY"/>
-                                                <constraint firstItem="b95-a6-7HD" firstAttribute="top" secondItem="jEL-Yp-cFl" secondAttribute="topMargin" constant="9" id="Txb-yP-dha"/>
-                                                <constraint firstItem="YIV-sa-Xut" firstAttribute="centerX" secondItem="jEL-Yp-cFl" secondAttribute="centerX" id="auv-LR-HDP"/>
-                                                <constraint firstItem="wYd-oF-ySQ" firstAttribute="leading" secondItem="jEL-Yp-cFl" secondAttribute="leading" constant="20" id="hK1-lt-CjQ"/>
-                                                <constraint firstItem="b95-a6-7HD" firstAttribute="bottom" secondItem="wYd-oF-ySQ" secondAttribute="bottom" id="mFO-7f-pj6"/>
+                                                <constraint firstItem="W1g-kZ-U1y" firstAttribute="top" secondItem="jEL-Yp-cFl" secondAttribute="top" id="B25-Jv-WSd"/>
+                                                <constraint firstAttribute="trailing" secondItem="YIV-sa-Xut" secondAttribute="trailing" constant="20" id="CZh-eI-LfH"/>
+                                                <constraint firstAttribute="trailing" secondItem="wYd-oF-ySQ" secondAttribute="trailing" constant="20" id="DFj-UM-g3U"/>
+                                                <constraint firstItem="W1g-kZ-U1y" firstAttribute="leading" secondItem="jEL-Yp-cFl" secondAttribute="leading" constant="7" id="DUB-ub-yeT"/>
+                                                <constraint firstItem="YIV-sa-Xut" firstAttribute="top" secondItem="wYd-oF-ySQ" secondAttribute="bottom" id="JO1-4V-N46"/>
+                                                <constraint firstItem="wYd-oF-ySQ" firstAttribute="top" secondItem="jEL-Yp-cFl" secondAttribute="top" id="NKD-tu-98K"/>
+                                                <constraint firstItem="YIV-sa-Xut" firstAttribute="leading" secondItem="W1g-kZ-U1y" secondAttribute="trailing" constant="13" id="TFa-0N-G8z"/>
+                                                <constraint firstItem="wYd-oF-ySQ" firstAttribute="leading" secondItem="W1g-kZ-U1y" secondAttribute="trailing" constant="13" id="XUT-rs-6Za"/>
+                                                <constraint firstItem="YIV-sa-Xut" firstAttribute="height" secondItem="wYd-oF-ySQ" secondAttribute="height" id="oaj-Yt-Wka"/>
+                                                <constraint firstAttribute="bottom" secondItem="YIV-sa-Xut" secondAttribute="bottom" id="wQE-mN-qhB"/>
+                                                <constraint firstAttribute="bottom" secondItem="W1g-kZ-U1y" secondAttribute="bottom" id="yuo-Mt-Owk"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -138,9 +141,6 @@
         </scene>
     </scenes>
     <resources>
-        <systemColor name="labelColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
